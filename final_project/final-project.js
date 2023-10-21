@@ -1,6 +1,6 @@
-// ideas de proyecto: un generador random de países con su respectiva información. Algo muy básico.
+// idea project: a basic program that allows to enter a country name and received information about that country
 
-// puede incluir un buscador del país y luego desplegar la información.
+// variables with dom information
 
 const countryInput = document.getElementById('country-input');
 const searchButton = document.getElementById('search-button');
@@ -11,8 +11,12 @@ const countryPopulation = document.getElementById('population');
 const langTitle = document.getElementById('lang-title');
 const countryLanguages = document.getElementById('languages');
 
+// empty variable for the entire country list
 
 let countryList = [];
+
+/* the displayCountry function will compare the country input with every object element in the countryList list
+to found the correct one and output the information */
 
 const displayCountry = () => {
     let country = capitalize(countryInput.value);
@@ -34,10 +38,13 @@ const displayCountry = () => {
     })
 }
 
+// a simple function to capitalize the country name
+
 function capitalize(word) {
     return word[0].toUpperCase() + word.slice(1);
 }
 
+// the getCountrys function will gives us all the information from the api
 
 const getCountrys = async () => {
     const response = await fetch('https://restcountries.com/v3.1/all');
@@ -48,5 +55,7 @@ const getCountrys = async () => {
 }
 
 getCountrys();
+
+// add an event listener for the search button
 
 searchButton.addEventListener('click', displayCountry);

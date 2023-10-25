@@ -1,5 +1,7 @@
 // idea project: a basic program that allows to enter a country name and received information about that country
 
+import capitalize from "./Capitalize.js";
+
 // variables with dom information
 
 const countryInput = document.getElementById('country-input');
@@ -33,15 +35,9 @@ const displayCountry = () => {
             Object.values(list.languages).forEach((lang) => {
                 countryLanguages.innerHTML += `<li>${lang}</li>`;
             })
-            console.log(Object.values(list.languages));
+            //console.log(Object.values(list.languages));
         }
     })
-}
-
-// a simple function to capitalize the country name
-
-function capitalize(word) {
-    return word[0].toUpperCase() + word.slice(1);
 }
 
 // the getCountrys function will gives us all the information from the api
